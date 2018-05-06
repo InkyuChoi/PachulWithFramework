@@ -1,0 +1,215 @@
+<!--추가/수정 모달-->
+<div id="add_data_Modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">으뜸 파출 - 업체 관리 페이지</h4>
+            </div>
+            <div class="modal-body">
+                <br/>
+                <form method="post" name="insert_form" id="insert_form">
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>상호명</label>
+                            <input type="text" name="companyName" id="companyName" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>사장이름</label>
+                            <input type="text" name="ceoName" id="ceoName" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>전화번호</label>
+                            <input type="text" name="phoneNumber" id="phoneNumber" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>사장번호</label>
+                            <input type="text" name="ceoPhoneNumber" id="ceoPhoneNumber" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>간단주소</label>
+                            <input type="text" name="address1" id="address1" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>상세주소</label>
+                            <input type="text" name="address2" id="address2" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>최초가입일</label>
+                            <input type="text" name="firstGaipDate" id="firstGaipDate" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>현재가입일</label>
+                            <input type="text" name="currentGaipDate" id="currentGaipDate" class="form-control" value="2018-01-01"
+                                   disabled/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>가입만기일</label>
+                            <input type="text" name="endGaipDate" id="endGaipDate" class="form-control" value="2018-01-01"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>가입금액</label>
+                            <input type="text" name="currentGaipPrice" id="currentGaipPrice" class="form-control" value="50000"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>구좌수</label>
+                            <input type="number" name="Gujwa" id="Gujwa" class="form-control" value="3"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>남은 콜 수</label>
+                            <input type="text" name="leftCalls" id="leftCalls" class="form-control" value="5"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>업체 비고</label>
+                            <input type="text" name="detail" id="detail" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>가입 비고</label>
+                            <input type="text" name="gaipDetail" id="gaipDetail" class="form-control"/>
+                        </div>
+                    </div>
+                    <input type="hidden" name="company_id" id="company_id"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" form="insert_form" value="추가" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--가입내역 모달-->
+<div id="dataModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">가입 내역</h4>
+            </div>
+            <div class="modal-body" id="company_detail">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--배정내역 모달-->
+<div id="assignModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">배정 내역</h4>
+            </div>
+            <div class="modal-body" id="assign_table">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--삭제 모달-->
+<div id="delete_data_Modal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">으뜸 파출 - 업체 삭제 페이지</h4>
+            </div>
+            <div class="modal-body">
+                <form method="post" name="delete_form" id="delete_form">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>삭제 사유</label>
+                            <input type="text" name="deleteDetail" id="deleteDetail" class="form-control"/>
+                        </div>
+                    </div>
+                    <input type="hidden" name="company_delete_id" id="company_delete_id"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-danger" form="delete_form" value="삭제" name="insert" id="delete"/>
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--재가입 모달-->
+<div id="redoModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">
+                    <text id="re_companyName"></text>
+                    - 업체 재가입 페이지
+                </h4>
+            </div>
+            <div class="modal-body">
+                <br/>
+                <form method="post" name="re_form" id="re_form">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>최초가입일</label>
+                            <input type="text" name="re_firstGaipDate" id="re_firstGaipDate" class="form-control"
+                                   disabled/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>재가입 시작일</label>
+                            <input type="text" name="re_currentGaipDate" id="re_currentGaipDate" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>재가입 만기일</label>
+                            <input type="text" name="re_endGaipDate" id="re_endGaipDate" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label>가입금액</label>
+                            <input type="text" name="re_currentGaipPrice" id="re_currentGaipPrice"
+                                   class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>구좌수</label>
+                            <input type="number" name="re_Gujwa" id="re_Gujwa" class="form-control"/>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>남은 콜 수</label>
+                            <input type="text" name="re_leftCalls" id="re_leftCalls" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <label>가입 비고</label>
+                            <input type="text" name="re_gaipDetail" id="re_gaipDetail" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                    <input type="hidden" name="company_redo_id" id="company_redo_id"/>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" form="re_form" value="재가입" />
+                <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
